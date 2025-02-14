@@ -9,6 +9,7 @@ plugins {
 }
 
 group = "org.jetbrains"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
