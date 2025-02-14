@@ -9,6 +9,7 @@ plugins {
 }
 
 group = "org.jetbrains"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -119,7 +120,9 @@ tasks.register("linkRustLib") {
 tasks.jar {
     dependsOn("linkRustLib")
     projectDir.resolve("libs").listSharedLibs()?.forEach {
-        from(it)
+        from(it) {
+            into("org/jetbrains/casr/adapter")
+        }
     }
 }
 
