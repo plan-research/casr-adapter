@@ -73,10 +73,7 @@ val cargoPath = findCargoPath()
 
 tasks.register<Exec>("buildRustLib") {
     workingDir = file("$projectDir/CasrAdapter")
-    commandLine = when {
-        gradle.startParameter.taskNames.any { it.contains("publish") } -> listOf("bash", "build.sh") + rustTargets
-        else -> listOf(cargoPath, "build", "--release", "--target", rustTargets[0])
-    }
+    commandLine = listOf("bash", "build.sh") + rustTargets
     outputs.upToDateWhen {
         rustTargets.all { file("$projectDir/CasrAdapter/target/$it/release").exists() }
     }
@@ -154,6 +151,10 @@ project.pluginManager.withPlugin("maven-publish") {
                 }
             }
             repositories {
+                maven {
+                    name = "local"
+                    url = uri("/Users/Timur.Kudashev/IdeaProjects/casr-adapter/aboba")
+                }
                 maven {
                     url = uri("https://maven.pkg.github.com/plan-research/kotlin-maven")
                     credentials {
