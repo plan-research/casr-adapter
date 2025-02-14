@@ -27,13 +27,13 @@ case "$TARGET" in
 
         case "$TARGET" in
             aarch64-apple-darwin)
-                cargo build-docker-image aarch64-apple-darwin-cross --build-arg 'MACOS_SDK_URL=https://github.com/joseluisq/macosx-sdks/releases/download/12.3/MacOSX12.3.sdk.tar.xz' --tag local
+                cargo build-docker-image aarch64-apple-darwin-cross --build-arg 'MACOS_SDK_URL=https://github.com/joseluisq/macosx-sdks/releases/download/12.3/MacOSX12.3.sdk.tar.xz' --tag 1.0.5
                 ;;
             x86_64-apple-darwin)
-                cargo build-docker-image x86_64-apple-darwin-cross --build-arg 'MACOS_SDK_URL=https://github.com/joseluisq/macosx-sdks/releases/download/12.3/MacOSX12.3.sdk.tar.xz' --tag local
+                cargo build-docker-image x86_64-apple-darwin-cross --build-arg 'MACOS_SDK_URL=https://github.com/joseluisq/macosx-sdks/releases/download/12.3/MacOSX12.3.sdk.tar.xz' --tag 1.0.5
                 ;;
             aarch64-pc-windows-msvc)
-                cargo build-docker-image aarch64-pc-windows-msvc-cross --tag local
+                cargo build-docker-image aarch64-pc-windows-msvc-cross --tag 1.0.5
                 ;;
         esac
 
