@@ -152,10 +152,6 @@ project.pluginManager.withPlugin("maven-publish") {
             }
             repositories {
                 maven {
-                    name = "local"
-                    url = uri("/Users/Timur.Kudashev/IdeaProjects/casr-adapter/aboba")
-                }
-                maven {
                     url = uri("https://maven.pkg.github.com/plan-research/kotlin-maven")
                     credentials {
                         username = project.findProperty("gpr.user")?.toString()
