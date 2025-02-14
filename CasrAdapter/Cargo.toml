@@ -1,0 +1,12 @@
+[lib]
+name = "casr_adapter"
+crate-type = ["cdylib"]
+
+[package]
+name = "casr_adapter"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+libcasr = "2.12.1"
+jni = "0.21.1"
