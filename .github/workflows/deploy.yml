@@ -24,4 +24,4 @@ jobs:
         env:
           MAVEN_REPOSITORY_LOGIN: ${{ secrets.MAVEN_REPOSITORY_LOGIN }}
           MAVEN_REPOSITORY_PASSWORD: ${{ secrets.MAVEN_REPOSITORY_PASSWORD }}
-        run:  ./gradlew publish
+        run:  gradle publish
