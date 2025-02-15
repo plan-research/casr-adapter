@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "org.jetbrains"
-version = "1.0.2"
+version = "1.0.3"
 
 repositories {
     mavenCentral()
@@ -150,6 +150,12 @@ project.pluginManager.withPlugin("maven-publish") {
                     version = project.version.toString()
 
                     from(components["java"])
+                    projectDir.resolve("libs").listSharedLibs()?.forEach { file ->
+                        artifact(file) {
+                            classifier = file.nameWithoutExtension
+                            extension = file.extension
+                        }
+                    }
                 }
             }
             repositories {
