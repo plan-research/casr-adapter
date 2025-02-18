@@ -64,7 +64,7 @@ fun findCargoPath(): String? {
         process.waitFor()
 
         if (output.isNullOrBlank()) null else output
-    } catch (e: Exception) {
+    } catch (_: Exception) {
         null
     }
 }
@@ -106,7 +106,7 @@ tasks.register("linkRustLib") {
 
                 try {
                     Files.createSymbolicLink(targetLink.toPath(), file.toPath())
-                } catch (e: UnsupportedOperationException) {
+                } catch (_: UnsupportedOperationException) {
                     println("Warning: Symbolic links are not supported or failed to create. Falling back to file copy.")
                     Files.copy(file.toPath(), targetLink.toPath(), StandardCopyOption.REPLACE_EXISTING)
                 } catch (e: Exception) {
